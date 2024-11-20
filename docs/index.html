@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heztro - Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="background">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div id="root">
+        <!-- Hero Section -->
+        <header class="hero">
+            <nav class="glass">
+                <div class="logo">Heztro</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                </div>
+            </nav>
+
+            <div class="hero-content">
+                <h1 class="animate-slide-up">
+                    <span class="text-gradient">Hello, I'm Heztro</span>
+                </h1>
+                <p class="animate-fade-in">Full Stack Developer & Software Engineer</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/Heztro" class="btn-primary animate-fade-in">
+                        View GitHub
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="glass-card reveal">
+                <h2>About Me</h2>
+                <p>I'm a passionate developer focused on creating efficient and elegant solutions. With expertise in Python, JavaScript, and C++, I build powerful applications and tools that make a difference.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title reveal">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="glass-card skill-card reveal">
+                    <i class="skill-icon" data-lucide="code"></i>
+                    <h3>Python</h3>
+                    <p>Advanced algorithms, automation, and backend development</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <i class="skill-icon" data-lucide="code-2"></i>
+                    <h3>JavaScript</h3>
+                    <p>Modern web applications and interactive interfaces</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <i class="skill-icon" data-lucide="terminal"></i>
+                    <h3>C++</h3>
+                    <p>System-level programming and performance optimization</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title reveal">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="glass-card project-card reveal">
+                    <h3>HeztroTweaker</h3>
+                    <p>Windows optimization tool with advanced system tweaking capabilities</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Heztro/HeztroTweaker" class="btn-secondary">View Project</a>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="glass">
+            <p>Created by Heztro © 2024</p>
+            <div class="social-links">
+                <a href="https://github.com/Heztro" aria-label="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
