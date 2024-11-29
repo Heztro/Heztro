@@ -1,34 +1,34 @@
-const loadingScreen = document.getElementById('loadingScreen');
-const typedText = document.querySelector('.typed-text');
-const cursor = document.querySelector('.cursor');
-let charIndex = 0;
-
-function typeText() {
-    const text = 'Heztro';
-    if (charIndex < text.length) {
-        typedText.textContent += text.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeText, 100);
-    } else {
-        setTimeout(() => {
+const startLoadingAnimation = () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const typedText = document.querySelector('.typed-text');
+    
+    if (!loadingScreen || !typedText) return;
+    
+    let text = 'Heztro';
+    let i = 0;
+    
+    const typing = setInterval(() => {
+        if (i < text.length) {
+            typedText.textContent += text[i];
+            i++;
+        } else {
+            clearInterval(typing);
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
             }, 500);
-        }, 500);
-    }
-}
+        }
+    }, 100);
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeText, 500);
-});
+startLoadingAnimation();
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(typeText, 500);
-    });
-} else {
-    setTimeout(typeText, 500);
+const canvas = document.getElementById('backgroundCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
 resizeCanvas();
