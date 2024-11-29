@@ -1,9 +1,10 @@
 const loadingScreen = document.getElementById('loadingScreen');
 const typedText = document.querySelector('.typed-text');
-const text = 'Heztro';
+const cursor = document.querySelector('.cursor');
 let charIndex = 0;
 
 function typeText() {
+    const text = 'Heztro';
     if (charIndex < text.length) {
         typedText.textContent += text.charAt(charIndex);
         charIndex++;
@@ -18,14 +19,16 @@ function typeText() {
     }
 }
 
-window.addEventListener('load', typeText);
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeText, 500);
+});
 
-const canvas = document.getElementById('backgroundCanvas');
-const ctx = canvas.getContext('2d');
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(typeText, 500);
+    });
+} else {
+    setTimeout(typeText, 500);
 }
 
 resizeCanvas();
