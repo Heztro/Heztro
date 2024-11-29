@@ -31,14 +31,6 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX - canvas.width / 2) * 0.0005;
-    mouseY = (e.clientY - canvas.height / 2) * 0.0005;
-});
-
 class Star {
     constructor() {
         this.reset();
@@ -55,8 +47,8 @@ class Star {
     }
 
     update() {
-        this.x += this.speedX + mouseX;
-        this.y += this.speedY + mouseY;
+        this.x += this.speedX;
+        this.y += this.speedY;
         this.brightness += this.twinkleSpeed;
         
         if (this.brightness > 1) {
@@ -121,65 +113,10 @@ tabs.forEach(tab => {
         const targetId = tab.getAttribute('href').slice(1);
         const targetSection = document.getElementById(targetId);
         
-        sections.forEach(section => {
-            section.classList.remove('active');
-            section.classList.add('glitch-transition');
-        });
-        
+        sections.forEach(section => section.classList.remove('active'));
         tabs.forEach(t => t.classList.remove('active'));
         
-        setTimeout(() => {
-            targetSection.classList.add('active');
-            tab.classList.add('active');
-            sections.forEach(section => {
-                section.classList.remove('glitch-transition');
-            });
-        }, 300);
-    });
-});
-
-const glitchText = document.querySelector('.glitch-text');
-
-function applyRandomGlitchEffect() {
-    if (Math.random() < 0.3) {
-        glitchText.classList.add('active');
-        
-        const randomX = (Math.random() * 6 - 3) + 'px';
-        const randomY = (Math.random() * 6 - 3) + 'px';
-        const randomSkewX = (Math.random() * 20 - 10) + 'deg';
-        const randomSkewY = (Math.random() * 20 - 10) + 'deg';
-        
-        glitchText.style.transform = `translate(${randomX}, ${randomY}) skew(${randomSkewX}, ${randomSkewY})`;
-        
-        const hue = Math.random() * 360;
-        glitchText.style.filter = `hue-rotate(${hue}deg)`;
-        
-        setTimeout(() => {
-            glitchText.classList.remove('active');
-            glitchText.style.transform = 'none';
-            glitchText.style.filter = 'none';
-        }, 150);
-    }
-}
-
-setInterval(applyRandomGlitchEffect, 800);
-
-document.querySelectorAll('.content-box').forEach(box => {
-    box.addEventListener('mousemove', (e) => {
-        const rect = box.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const angleX = (y - centerY) / 30;
-        const angleY = (centerX - x) / 30;
-        
-        box.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(10px)`;
-    });
-    
-    box.addEventListener('mouseleave', () => {
-        box.style.transform = 'none';
+        targetSection.classList.add('active');
+        tab.classList.add('active');
     });
 });
