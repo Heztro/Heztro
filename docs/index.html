@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heztro</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="typing-container">
+            <span class="typed-text"></span>
+            <span class="cursor">|</span>
+        </div>
+    </div>
+
     <canvas id="backgroundCanvas"></canvas>
-    
+
     <nav>
         <div class="nav-content">
             <div class="logo">Heztro</div>
@@ -24,12 +32,13 @@
         <section id="home" class="section active">
             <div class="content-box">
                 <h1>hi, i'm heztro</h1>
-                <div class="glitch-text">i make my code work on accident</div>
-                <p class="bio">
-                    Hey there! I'm a self-taught programmer with a focus on frontend development. I started 
-                    coding when trying to create a simple Discord bot, however I quickly starting moving on to 
-                    other projects. Since 2023, I've been focusing on web design. I'm best in React.
-                </p>
+                <div class="glitch-text" data-text="i make my code work on accident">i make my code work on accident</div>
+                <div class="bio">
+                    Hey there! I'm a self-taught programmer with a focus on frontend development. 
+                    I started coding when trying to create a simple Discord bot, however I quickly 
+                    starting moving on to other projects. Since 2023, I've been focusing on web 
+                    design. I'm best in React.
+                </div>
             </div>
         </section>
 
