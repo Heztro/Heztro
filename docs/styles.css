@@ -23,6 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 0.5s ease;
 }
 
 .typing-container {
@@ -71,7 +72,6 @@ nav {
     font-size: 2em;
     font-weight: bold;
     color: #4169E1;
-    text-shadow: 0 0 20px rgba(65, 105, 225, 0.3);
 }
 
 .nav-tabs {
@@ -85,13 +85,12 @@ nav {
     padding: 12px 24px;
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tab:hover {
     background: rgba(65, 105, 225, 0.2);
-    transform: translateY(-2px);
     border-color: rgba(65, 105, 225, 0.3);
 }
 
@@ -113,7 +112,7 @@ nav {
     padding: 20px;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section.active {
@@ -131,12 +130,6 @@ nav {
     transition: all 0.3s ease;
 }
 
-.content-box:hover {
-    transform: translateY(-5px);
-    border-color: rgba(65, 105, 225, 0.3);
-    box-shadow: 0 8px 32px rgba(65, 105, 225, 0.1);
-}
-
 h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
@@ -148,53 +141,6 @@ h1 {
     font-size: 1.8em;
     margin-bottom: 30px;
     color: white;
-    position: relative;
-    display: inline-block;
-}
-
-.glitch-text::before,
-.glitch-text::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-}
-
-.glitch-text.active::before {
-    animation: glitch-anim-1 0.2s cubic-bezier(.25, .46, .45, .94) both;
-    color: #ff0080;
-    clip: rect(44px, 450px, 56px, 0);
-}
-
-.glitch-text.active::after {
-    animation: glitch-anim-2 0.2s cubic-bezier(.25, .46, .45, .94) reverse both;
-    color: #4169E1;
-    clip: rect(44px, 450px, 56px, 0);
-}
-
-@keyframes glitch-anim-1 {
-    0% {
-        clip: rect(42px, 9999px, 44px, 0);
-        transform: translate(0);
-    }
-    100% {
-        clip: rect(32px, 9999px, 54px, 0);
-        transform: translate(-3px);
-    }
-}
-
-@keyframes glitch-anim-2 {
-    0% {
-        clip: rect(12px, 9999px, 34px, 0);
-        transform: translate(0);
-    }
-    100% {
-        clip: rect(62px, 9999px, 84px, 0);
-        transform: translate(3px);
-    }
 }
 
 .bio {
@@ -207,47 +153,4 @@ h1 {
 h2 {
     font-size: 2.5em;
     color: #4169E1;
-}
-
-.section.glitch-transition {
-    animation: section-glitch 0.5s cubic-bezier(.25, .46, .45, .94);
-}
-
-@keyframes section-glitch {
-    0% {
-        clip-path: inset(100% 0 0 0);
-        transform: translate(0);
-    }
-    10% {
-        clip-path: inset(10% 0 85% 0);
-        transform: translate(-2px, 2px);
-    }
-    20% {
-        clip-path: inset(85% 0 15% 0);
-        transform: translate(2px, -2px);
-    }
-    30% {
-        clip-path: inset(15% 0 70% 0);
-        transform: translate(-2px, 2px);
-    }
-    40% {
-        clip-path: inset(70% 0 30% 0);
-        transform: translate(2px, -2px);
-    }
-    50% {
-        clip-path: inset(30% 0 55% 0);
-        transform: translate(-2px, 2px);
-    }
-    60% {
-        clip-path: inset(55% 0 45% 0);
-        transform: translate(2px, -2px);
-    }
-    70% {
-        clip-path: inset(45% 0 50% 0);
-        transform: translate(-2px, 2px);
-    }
-    80%, 100% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(0);
-    }
 }
